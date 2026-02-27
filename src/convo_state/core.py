@@ -35,3 +35,5 @@ class ConversationEvent(str, Enum):
     RESOLVE = "resolve"
     END = "end"
 
+
+DEFAULT_TRANSITIONS: dict[tuple[SessionState, ConversationEvent], SessionState] = {

@@ -42,3 +42,5 @@ DEFAULT_TRANSITIONS: dict[tuple[SessionState, ConversationEvent], SessionState] 
     (SessionState.GREETED, ConversationEvent.START_TASK): SessionState.COLLECTING,
     (SessionState.GREETED, ConversationEvent.BOT_REPLY): SessionState.GREETED,
     (SessionState.COLLECTING, ConversationEvent.USER_MESSAGE): SessionState.COLLECTING,
+    (SessionState.COLLECTING, ConversationEvent.START_TASK): SessionState.PROCESSING,
+    (SessionState.PROCESSING, ConversationEvent.TASK_DONE): SessionState.RESPONDING,

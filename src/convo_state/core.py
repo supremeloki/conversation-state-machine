@@ -33,3 +33,5 @@ class ConversationEvent(str, Enum):
     TASK_DONE = "task_done"
     ESCALATE = "escalate"
     RESOLVE = "resolve"
+    END = "end"
+

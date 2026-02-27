@@ -47,3 +47,5 @@ DEFAULT_TRANSITIONS: dict[tuple[SessionState, ConversationEvent], SessionState] 
     (SessionState.RESPONDING, ConversationEvent.BOT_REPLY): SessionState.GREETED,
     (SessionState.RESPONDING, ConversationEvent.END): SessionState.CLOSED,
     (SessionState.GREETED, ConversationEvent.END): SessionState.CLOSED,
+    (SessionState.IDLE, ConversationEvent.END): SessionState.CLOSED,
+}

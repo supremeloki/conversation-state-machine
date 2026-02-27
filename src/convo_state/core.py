@@ -37,3 +37,5 @@ class ConversationEvent(str, Enum):
 
 
 DEFAULT_TRANSITIONS: dict[tuple[SessionState, ConversationEvent], SessionState] = {
+    (SessionState.IDLE, ConversationEvent.USER_MESSAGE): SessionState.GREETED,
+    (SessionState.IDLE, ConversationEvent.BOT_REPLY): SessionState.GREETED,

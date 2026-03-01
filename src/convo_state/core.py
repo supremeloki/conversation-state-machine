@@ -53,3 +53,4 @@ DEFAULT_TRANSITIONS: dict[tuple[SessionState, ConversationEvent], SessionState] 
 
 @dataclass(frozen=True)
 class Transition:
+    source: SessionState

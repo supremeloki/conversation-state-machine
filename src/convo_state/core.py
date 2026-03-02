@@ -56,3 +56,5 @@ class Transition:
     source: SessionState
     event: ConversationEvent
     target: SessionState
+    occurred_at: float
+    payload: str = ""

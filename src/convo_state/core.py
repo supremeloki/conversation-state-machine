@@ -60,3 +60,4 @@ class Transition:
     payload: str = ""
 
 
+@dataclass(frozen=True)

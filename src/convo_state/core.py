@@ -61,3 +61,5 @@ class Transition:
 
 
 @dataclass(frozen=True)
+class TurnRecord:
+    role: str

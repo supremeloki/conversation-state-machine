@@ -63,3 +63,5 @@ class Transition:
 @dataclass(frozen=True)
 class TurnRecord:
     role: str
+    content: str
+    state_at_turn: SessionState

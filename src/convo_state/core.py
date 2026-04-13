@@ -67,3 +67,5 @@ class TurnRecord:
     state_at_turn: SessionState
     recorded_at: float
 
+
+class StateMachine:

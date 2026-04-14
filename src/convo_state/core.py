@@ -69,3 +69,4 @@ class TurnRecord:
 
 
 class StateMachine:
+    def __init__(self,

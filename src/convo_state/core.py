@@ -70,3 +70,5 @@ class TurnRecord:
 
 class StateMachine:
     def __init__(self,
+                 transitions: dict[tuple[SessionState, ConversationEvent],
+                                   SessionState] | None = None,

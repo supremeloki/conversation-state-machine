@@ -74,3 +74,5 @@ class StateMachine:
                                    SessionState] | None = None,
                  hooks: dict[ConversationEvent, Callable[[Transition], None]] | None = None,
                  clock: Callable[[], float] | None = None) -> None:
+        self._transitions = transitions or DEFAULT_TRANSITIONS
+        self._hooks = hooks or {}

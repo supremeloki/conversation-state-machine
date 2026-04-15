@@ -72,3 +72,5 @@ class StateMachine:
     def __init__(self,
                  transitions: dict[tuple[SessionState, ConversationEvent],
                                    SessionState] | None = None,
+                 hooks: dict[ConversationEvent, Callable[[Transition], None]] | None = None,
+                 clock: Callable[[], float] | None = None) -> None:

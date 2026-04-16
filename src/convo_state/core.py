@@ -76,3 +76,4 @@ class StateMachine:
                  clock: Callable[[], float] | None = None) -> None:
         self._transitions = transitions or DEFAULT_TRANSITIONS
         self._hooks = hooks or {}
+        self.state = SessionState.IDLE

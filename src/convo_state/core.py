@@ -77,3 +77,5 @@ class StateMachine:
         self._transitions = transitions or DEFAULT_TRANSITIONS
         self._hooks = hooks or {}
         self.state = SessionState.IDLE
+        self.history: list[Transition] = []
+        self._clock = clock or time.monotonic

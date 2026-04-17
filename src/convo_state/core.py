@@ -83,3 +83,4 @@ class StateMachine:
     @property
     def is_terminal(self) -> bool:
         return self.state is SessionState.CLOSED
+

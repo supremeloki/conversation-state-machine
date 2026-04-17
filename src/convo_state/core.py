@@ -79,3 +79,5 @@ class StateMachine:
         self.state = SessionState.IDLE
         self.history: list[Transition] = []
         self._clock = clock or time.monotonic
+
+    @property

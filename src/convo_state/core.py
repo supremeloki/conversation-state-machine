@@ -81,3 +81,5 @@ class StateMachine:
         self._clock = clock or time.monotonic
 
     @property
+    def is_terminal(self) -> bool:
+        return self.state is SessionState.CLOSED

@@ -84,3 +84,5 @@ class StateMachine:
     def is_terminal(self) -> bool:
         return self.state is SessionState.CLOSED
 
+    def allowed_events(self) -> tuple[ConversationEvent, ...]:
+        return tuple(sorted(

@@ -86,3 +86,5 @@ class StateMachine:
 
     def allowed_events(self) -> tuple[ConversationEvent, ...]:
         return tuple(sorted(
+            (event for (state, event) in self._transitions if state is self.state),
+            key=lambda e: e.value,

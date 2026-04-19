@@ -73,3 +73,5 @@ def test_hooks_fire_on_event():
     assert fired == ["angry user"]
     assert custom.state is SessionState.ESCALATED
 
+
+def test_custom_transitions_table():

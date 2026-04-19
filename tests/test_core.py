@@ -76,3 +76,4 @@ def test_hooks_fire_on_event():
 
 def test_custom_transitions_table():
     table = {
+        (SessionState.IDLE, ConversationEvent.ESCALATE): SessionState.ESCALATED,

@@ -72,3 +72,4 @@ def test_hooks_fire_on_event():
     custom.fire(ConversationEvent.ESCALATE, "angry user")
     assert fired == ["angry user"]
     assert custom.state is SessionState.ESCALATED
+

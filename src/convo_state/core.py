@@ -90,3 +90,4 @@ class StateMachine:
             key=lambda e: e.value,
         ))
 
+    def fire(self, event: ConversationEvent, payload: str = "") -> SessionState:

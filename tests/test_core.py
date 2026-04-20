@@ -81,3 +81,5 @@ def test_custom_transitions_table():
     }
     machine = StateMachine(transitions=table)
     assert machine.allowed_events() == (ConversationEvent.ESCALATE,
+                                        ConversationEvent.RESOLVE)
+

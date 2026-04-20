@@ -79,3 +79,4 @@ def test_custom_transitions_table():
         (SessionState.IDLE, ConversationEvent.ESCALATE): SessionState.ESCALATED,
         (SessionState.IDLE, ConversationEvent.RESOLVE): SessionState.CLOSED,
     }
+    machine = StateMachine(transitions=table)

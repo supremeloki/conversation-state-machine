@@ -84,3 +84,4 @@ def test_custom_transitions_table():
                                         ConversationEvent.RESOLVE)
 
 
+def test_replay_sequence():

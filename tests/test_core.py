@@ -85,3 +85,5 @@ def test_custom_transitions_table():
 
 
 def test_replay_sequence():
+    machine = StateMachine()
+    final = machine.replay([

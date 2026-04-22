@@ -92,3 +92,4 @@ def test_replay_sequence():
         (ConversationEvent.START_TASK, "data"),
         (ConversationEvent.TASK_DONE, ""),
         (ConversationEvent.BOT_REPLY, "here you go"),
+    ])

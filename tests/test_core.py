@@ -93,3 +93,5 @@ def test_replay_sequence():
         (ConversationEvent.TASK_DONE, ""),
         (ConversationEvent.BOT_REPLY, "here you go"),
     ])
+    assert final is SessionState.GREETED
+

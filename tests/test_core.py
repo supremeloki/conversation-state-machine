@@ -88,3 +88,4 @@ def test_replay_sequence():
     machine = StateMachine()
     final = machine.replay([
         (ConversationEvent.USER_MESSAGE, "hello"),
+        (ConversationEvent.START_TASK, ""),

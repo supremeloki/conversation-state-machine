@@ -96,3 +96,4 @@ def test_replay_sequence():
     assert final is SessionState.GREETED
 
 
+def test_session_records_turns():

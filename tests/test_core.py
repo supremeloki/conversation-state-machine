@@ -97,3 +97,5 @@ def test_replay_sequence():
 
 
 def test_session_records_turns():
+    session = ConversationSession("s-1")
+    session.add_user_turn("What's the weather?")

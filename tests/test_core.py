@@ -101,3 +101,5 @@ def test_session_records_turns():
     session.add_user_turn("What's the weather?")
     session.add_bot_turn("Sunny.")
     assert session.turn_count == 2
+    assert session.transcript[0].startswith("user:")
+    roles = [turn.role for turn in session.turns]

@@ -104,3 +104,4 @@ def test_session_records_turns():
     assert session.transcript[0].startswith("user:")
     roles = [turn.role for turn in session.turns]
     assert roles == ["user", "assistant"]
+

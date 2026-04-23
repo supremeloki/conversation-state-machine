@@ -111,3 +111,4 @@ def test_session_states_snapshotted_per_turn():
     session.add_user_turn("hi")
     state_after_first = session.turns[0].state_at_turn
     session.add_bot_turn("hey")
+    assert state_after_first is not session.turns[1].state_at_turn

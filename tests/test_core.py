@@ -100,3 +100,4 @@ def test_session_records_turns():
     session = ConversationSession("s-1")
     session.add_user_turn("What's the weather?")
     session.add_bot_turn("Sunny.")
+    assert session.turn_count == 2

@@ -107,3 +107,4 @@ def test_session_records_turns():
 
 
 def test_session_states_snapshotted_per_turn():
+    session = ConversationSession("s-2")

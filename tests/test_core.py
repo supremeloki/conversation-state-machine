@@ -105,3 +105,5 @@ def test_session_records_turns():
     roles = [turn.role for turn in session.turns]
     assert roles == ["user", "assistant"]
 
+
+def test_session_states_snapshotted_per_turn():

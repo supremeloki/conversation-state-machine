@@ -122,3 +122,4 @@ def test_trace_states_survives_invalid():
     ]))
     assert states[0] is SessionState.GREETED
     assert states[1] is SessionState.GREETED
+    assert states[2] is SessionState.COLLECTING

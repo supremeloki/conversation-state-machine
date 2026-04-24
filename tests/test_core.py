@@ -115,3 +115,4 @@ def test_session_states_snapshotted_per_turn():
 
 
 def test_trace_states_survives_invalid():
+    states = list(trace_states([

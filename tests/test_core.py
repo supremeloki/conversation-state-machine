@@ -114,3 +114,4 @@ def test_session_states_snapshotted_per_turn():
     assert state_after_first is not session.turns[1].state_at_turn
 
 
+def test_trace_states_survives_invalid():

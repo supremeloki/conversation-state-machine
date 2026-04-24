@@ -119,3 +119,4 @@ def test_trace_states_survives_invalid():
         ConversationEvent.USER_MESSAGE,
         ConversationEvent.TASK_DONE,
         ConversationEvent.START_TASK,
+    ]))

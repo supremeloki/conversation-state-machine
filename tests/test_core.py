@@ -120,3 +120,5 @@ def test_trace_states_survives_invalid():
         ConversationEvent.TASK_DONE,
         ConversationEvent.START_TASK,
     ]))
+    assert states[0] is SessionState.GREETED
+    assert states[1] is SessionState.GREETED

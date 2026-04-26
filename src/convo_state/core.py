@@ -91,3 +91,74 @@ class StateMachine:
         ))
 
     def fire(self, event: ConversationEvent, payload: str = "") -> SessionState:
+        if self.is_terminal:
+            raise InvalidTransitionError(self.state.value, event.value)
+        key = (self.state, event)
+        if key not in self._transitions:
+            raise InvalidTransitionError(self.state.value, event.value)
+        transition = Transition(
+            source=self.state,
+            event=event,
+            target=self._transitions[key],
+            occurred_at=self._clock(),
+            payload=payload,
+        )
+        hook = self._hooks.get(event)
+        if hook is not None:
+            hook(transition)
+        self.state = transition.target
+        self.history.append(transition)
+        return self.state
+
+    def replay(self, events: Sequence[tuple[ConversationEvent, str]]) -> SessionState:
+        for event, payload in events:
+            self.fire(event, payload)
+        return self.state
+
+
+class ConversationSession:
+    def __init__(self, session_id: str,
+                 machine: StateMachine | None = None) -> None:
+        self.session_id = session_id
+        self.machine = machine or StateMachine()
+        self.turns: list[TurnRecord] = []
+        self.metadata: dict[str, Any] = {}
+
+    def add_user_turn(self, content: str) -> TurnRecord:
+        record = TurnRecord(
+            role="user",
+            content=content,
+            state_at_turn=self.machine.state,
+            recorded_at=time.time(),
+        )
+        self.turns.append(record)
+        self.machine.fire(ConversationEvent.USER_MESSAGE, content)
+        return record
+
+    def add_bot_turn(self, content: str) -> TurnRecord:
+        record = TurnRecord(
+            role="assistant",
+            content=content,
+            state_at_turn=self.machine.state,
+            recorded_at=time.time(),
+        )
+        self.turns.append(record)
+        self.machine.fire(ConversationEvent.BOT_REPLY, content)
+        return record
+
+    @property
+    def transcript(self) -> tuple[str, ...]:
+        return tuple(f"{turn.role}: {turn.content}" for turn in self.turns)
+
+    @property
+    def turn_count(self) -> int:
+        return len(self.turns)
+
+
+def trace_states(events: Sequence[ConversationEvent]) -> Iterator[SessionState]:
+    machine = StateMachine()
+    for event in events:
+        try:
+            yield machine.fire(event)
+        except InvalidTransitionError:
+            yield machine.state
